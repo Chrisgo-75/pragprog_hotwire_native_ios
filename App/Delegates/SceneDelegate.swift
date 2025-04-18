@@ -16,7 +16,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     var window: UIWindow?
     
     // This is a constant variable and private.
-    private let navigator = Navigator()
+    private let tabBarController = TabBarController()
     
     // Required for app to launch.
     // The function being called is our trigger to start rendering some content.
@@ -27,9 +27,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     ) {
         // For iOS to actually render anything, we need to attach a View Controller to the main window.
         // So grab the rootViewController from Navigator and assign it to the window's root view controller property.
-        window?.rootViewController = navigator.rootViewController
+        window?.rootViewController = tabBarController
         
         // Tell the navigator to render the homepage of the Rails app by calling route(_:)
-        navigator.route(baseURL.appending(path: "hikes"))
+        //navigator.route(baseURL.appending(path: "hikes"))
     }
 }

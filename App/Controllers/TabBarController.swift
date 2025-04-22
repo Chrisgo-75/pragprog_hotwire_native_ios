@@ -19,7 +19,7 @@ class TabBarController: UITabBarController {
     
     private func makeViewControllers() -> [UIViewController] {
         return Tab.all.map { tab in
-            let navigator = Navigator()
+            let navigator = Navigator(delegate: self)
             navigator.route(baseURL.appending(path: tab.path))
             navigators.append(navigator)
             
@@ -27,6 +27,16 @@ class TabBarController: UITabBarController {
             controller.tabBarItem.title = tab.title
             controller.tabBarItem.image = UIImage(systemName: tab.image)
             return controller
+        }
+    }
+}
+
+extension TabBarController: NavigatorDelegate {
+    // Below is called every time the user taps a link.
+    func handle(proposal: VisitProposal) -> ProposalResult {
+        switch proposal.viewController {
+        case "map": .acceptCustom(MapController(url: proposal.url))
+        default: .accept
         }
     }
 }

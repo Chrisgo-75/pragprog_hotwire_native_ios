@@ -23,6 +23,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             .server(baseURL.appending(path: "configurations/ios_v1.json"))
         ])
         
+        Hotwire.registerBridgeComponents([
+            ButtonComponent.self
+        ])
+        
         // Override point for customization after application launch.
         return true
     }

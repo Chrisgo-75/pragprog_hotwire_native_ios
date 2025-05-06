@@ -20,7 +20,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         Hotwire.loadPathConfiguration(from: [
             // Below tells hotwire native to fetch this JSON from a remote endpoint, parse the file, and
             // apply rules when app is launched.
-            .server(baseURL.appending(path: "configurations/ios_v1.json"))
+            // OLD Rails route: .server(baseURL.appending(path: "configurations/ios_v1.json"))
+            .server(baseURL.appending(path: "hotwire/ios/configurations/v1.json"))
         ])
         
         Hotwire.registerBridgeComponents([

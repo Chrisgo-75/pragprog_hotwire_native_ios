@@ -25,7 +25,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         ])
         
         Hotwire.registerBridgeComponents([
-            ButtonComponent.self
+            ButtonComponent.self,
+            OverflowMenuComponent.self
         ])
         
         // Override point for customization after application launch.
